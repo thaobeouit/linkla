@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lời tỏ tình siêu sịn sò với hiệu ứng đẹp mắt">
+    <meta name="keywords" content="tỏ tình, hiệu ứng, tình yêu, HTML, CSS, JavaScript">
+    <title>Lời Tỏ Tình Sịn Sò</title>
+    <link rel="stylesheet" href="main2.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .love-message {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #d70000;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        p {
+            font-size: 22px;
+            color: #333;
+            margin-top: 10px;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        #result-message {
+            display: none;
+            text-align: center;
+            animation: flash 2s linear infinite;
+        }
+
+        #result-message img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Hiệu ứng flash nhấp nháy */
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn.yes {
+            background-color: #28a745;
+        }
+
+        .btn.no {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="love-message" id="love-message">
+        <h1>Em là người duy nhất trong trái tim anh!</h1>
+        <p>Chúng ta sẽ có một tương lai tươi đẹp cùng nhau!</p>
+        <div class="buttons">
+            <button class="btn yes" onclick="yesClicked()">Đồng ý ❤️</button>
+            <button class="btn no" onclick="noClicked()">Từ chối 😢</button>
+        </div>
+    </div>
+
+    <div id="result-message">
+        <p id="result-text"></p>
+        <img id="result-image" src="">
+    </div>
+
+    <!-- Thêm các thẻ audio cho nhạc -->
+    <audio id="yes-audio" src="music/yes.mp3"></audio> <!-- Nhạc khi Đồng ý -->
+    <audio id="no-audio" src="music/no.mp3"></audio>   <!-- Nhạc khi Từ chối -->
+
+    <!-- Nhạc nền -->
+    <audio id="background-music" src="music/back.mp3" autoplay loop></audio> <!-- Nhạc nền -->
+
+    <!-- Các hiệu ứng trái tim bay -->
+    <div class="heart" style="left: 10%; background-color: pink; animation-delay: 0s; transform: scale(0.8);"></div>
+    <div class="heart" style="left: 30%; background-color: red; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 50%; background-color: #ff69b4; animation-delay: 4s; transform: scale(1.2);"></div>
+    <div class="heart" style="left: 70%; background-color: #ff4500; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 90%; background-color: #ff1493; animation-delay: 3s; transform: scale(0.6);"></div>
+
+    <script>
+        function yesClicked() {
+            document.getElementById('love-message').style.display = 'none';
+            document.getElementById('result-message').style.display = 'block';
+            document.getElementById('result-text').innerText = "Wow! Cảm ơn em đã đồng ý! Anh rất hạnh phúc! ❤️";
+            document.getElementById('result-image').src = "images/yes_image.jpg"; // Đường dẫn ảnh khi Đồng ý
+        }
+
+        function noClicked() {
+            document.getElementById('love-message').style.display = 'none';
+            document.getElementById('result-message').style.display = 'block';
+            document.getElementById('result-text').innerText = "Oh không! Anh tôn trọng quyết định của em. 😢";
+            document.getElementById('result-image').src = "images/no_image.jpg"; // Đường dẫn ảnh khi Từ chối
+        }
+    </script>
+</body>
+</html>

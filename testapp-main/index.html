@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love</title>
+    <!-- Liên kết tới tệp CSS -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="grid"></div>
+
+    <div class="warning"></div>
+
+    <div class="base">
+        <button id="activate">
+            <span></span>
+        </button>
+    </div>
+
+    <div class="box opened" id="cover">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <span></span><span></span>
+    </div>
+
+    <div class="hinges"></div>
+
+    <div class="text">
+        Bạn phải chọn không máy sẽ dính Virus<br>
+        ANSWER NOW
+    </div>
+
+    <div id="panel">
+        <div id="msg">ANSWER NOW</div>
+        <div id="time">9</div>
+        <!-- Thêm hàm yesClicked để chuyển sang index2.html -->
+        
+        <!-- Nút YES -->
+<span id="abort">
+    <button onclick="yesClicked()" class="btn-action">YES</button>
+</span>
+
+<!-- Nút NO -->
+<span id="no">
+</span>
+
+        
+        <script>
+            function yesClicked() {
+                window.location.href = "index2.html";  // Chuyển thẳng đến index2.html
+            }
+        </script>
+        <script>
+            // Hàm chuyển hướng khi nhấn YES
+            function yesClicked() {
+                window.location.href = "index2.html";  // Chuyển thẳng đến index2.html
+            }
+        
+            // Hàm đếm ngược
+            let timeLeft = 9;
+            let timer = setInterval(function() {
+                if (timeLeft <= 0) {
+                    clearInterval(timer);  // Dừng đếm ngược khi về 0
+                    document.getElementById("time").innerHTML = "Hết giờ!";
+                    // Tùy chọn: Bạn có thể thêm hành động gì đó khi hết giờ
+                } else {
+                    document.getElementById("time").innerHTML = "" + timeLeft;  // Cập nhật số giây còn lại
+                }
+                timeLeft -= 1;
+            }, 1000);  // Giảm mỗi giây
+        </script>
+        <span id="no">NO</span>
+        
+    </div>
+
+    <div id="mute"></div>
+
+    <!-- Liên kết tới trang khác -->
+    <div style="position: absolute; bottom: 10px; right: 10px;">
+        <a href="index2.html" style="color: white; font-size: 18px;">Chuyển đến Lời Tỏ Tình ❤️</a>
+    </div>
+
+    <!-- Nhạc nền -->
+    <audio src="music.mp3" autoplay loop hidden></audio>
+
+    <!-- Liên kết tới tệp JS -->
+    <script src="main.js"></script>
+
+    <!-- Thêm hàm chuyển hướng khi nhấn YES -->
+    <script>
+        function yesClicked() {
+            // Chuyển hướng sang index2.html
+            window.location.href = "index2.html";
+        }
+    </script>
+</body>
+</html>
